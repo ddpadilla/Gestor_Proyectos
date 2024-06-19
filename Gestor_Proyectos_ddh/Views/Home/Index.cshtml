@@ -1,0 +1,43 @@
+﻿@{
+    ViewData["Title"] = "Inicio";
+}
+
+<div class="text-center">
+    <h1 class="display-4"><strong>Bienvenido a Planify</strong></h1>
+
+    <img src="/img/logo.png" id="imgIndex" />
+
+    <p class="card-text" style="text-align:justify">
+        ¿Estás listo para transformar la manera en que gestionas tus proyectos? Planify es la
+        herramienta definitiva diseñada para simplificar, organizar y maximizar la eficiencia 
+        de tus proyectos, ya sea que trabajes solo, en un equipo pequeño o lideres una gran 
+        organización.</p>
+</div>
+
+<br>
+<h2 class="display-8" style="text-align:center">Porque Planify es diferente</h2>
+<br>
+
+<div class="row" id="tarjeta">
+    <div class="col-sm-6 mb-3 mb-sm-0">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title" style="text-align:center">Simplicidad y Potencia</h5>
+                <p class="card-text" style="text-align:justify">
+                    Con Planify, gestionar tus proyectos nunca ha sido tan fácil. Nuestra interfaz intuitiva y fácil
+                    de usar te permite concentrarte en lo que realmente importa: hacer que tu proyecto avance.</p>
+                <a asp-controller="Home" asp-action="Crear" type="submit" class="btn btn-primary">Empieza gratis</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title" style="text-align:center">Organización a tu Alcance</h5>
+                <p class="card-text" style="text-align:justify">Mantén todas tus tareas, plazos y recursos organizados en un solo lugar. 
+                                     Con nuestras poderosas herramientas de planificación, nunca más te perderás un detalle importante.</p>
+                <a asp-controller="Home" asp-action="Crear" type="submit" class="btn btn-primary">Dale una probada</a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,81 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Gestionar Proyectos";
+}
+
+@model IEnumerable<Proyectos>
+
+<h1 id="h1gestion">Gestionar Proyectos</h1>
+
+<div id="imgGestion">
+    <img src="/img/logo4.png" alt="Gestion"  />
+</div>
+
+<div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>
+                    Nombre del Proyecto
+                </th>
+                <th>
+                    Descripcion
+                </th>
+                <th>
+                    Tareas
+                </th>
+                <th>
+                    Materiales
+                </th>
+                <th>
+                    Costos
+                </th>
+                <th>
+                    Responsable
+                </th>
+                <th>
+                    Fecha de Entrega
+                </th>
+                <th>
+                    Acciones
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @item.NOMBRE_PROYECTO
+                    </td>
+                    <td>
+                        @item.DESCRIPCION
+                    </td>
+                    <td>
+                        @item.TAREAS
+                    </td>
+                    <td>
+                        @item.MATERIALES
+                    </td>
+                    <td>
+                        @item.COSTOS
+                    </td>
+                    <td>
+                        @item.RESPONSABLE
+                    </td>
+                    <td>
+                        @item.FECHA_ENTREGA
+                    </td>
+                    <td>
+                        <a class="btn btn-primary" asp-controller="Home" asp-action="Actualizar" asp-route-id="@item.ID_PROYECTO">Actualizar</a>
+                        <form asp-controller="Home" asp-action="Eliminar" asp-route-id="@item.ID_PROYECTO" method="post" style="display:inline;" onsubmit="return confirm('¿Estás seguro de que deseas eliminar este proyecto?');">
+                            <button type="submit" class="btn btn-danger">Eliminar</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

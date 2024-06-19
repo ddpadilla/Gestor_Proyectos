@@ -1,0 +1,70 @@
+﻿@model Gestor_Proyectos_ddh.Models.Proyectos
+
+@{
+    ViewData["Title"] = "Crear Nuevo Proyecto";
+    var mensaje = TempData["mensaje"] as string;
+}
+
+<h1 id="h1crear">@ViewData["Title"]</h1>
+
+<div>
+    @if (!string.IsNullOrEmpty(mensaje))
+    {
+        <script>
+            alert('@mensaje');
+        </script>
+    }
+
+    <div id="imgCrear">
+        <img src="/img/logo2.png" />
+    </div>
+    <br>
+
+    <form asp-controller="Home" asp-action="Recibir" method="post">
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="floatingInput" name="NOMBRE_PROYECTO" value="@Model?.NOMBRE_PROYECTO">
+            <label for="floatingInput">Nombre del Proyecto</label>
+            <span class="text-danger">@Html.ValidationMessageFor(m => m.NOMBRE_PROYECTO)</span>
+        </div>
+        <div class="form-floating mb-3">
+            <textarea class="form-control" id="floatingInput" rows="2" name="DESCRIPCION">@Model?.DESCRIPCION</textarea>
+            <label for="floatingInput">Descripcion</label>
+            <span class="text-danger">@Html.ValidationMessageFor(m => m.DESCRIPCION)</span>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="floatingInput" name="TAREAS" value="@Model?.TAREAS">
+            <label for="floatingInput">Tareas: Enumera las tareas a asignar</label>
+            <span class="text-danger">@Html.ValidationMessageFor(m => m.TAREAS)</span>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="floatingInput" name="MATERIALES" value="@Model?.MATERIALES">
+            <label for="floatingInput">Materiales</label>
+            <span class="text-danger">@Html.ValidationMessageFor(m => m.MATERIALES)</span>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="floatingInput" name="COSTOS" value="@Model?.COSTOS">
+            <label for="floatingInput">Costo Total Aproximado</label>
+            <span class="text-danger">@Html.ValidationMessageFor(m => m.COSTOS)</span>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="floatingInput" name="RESPONSABLE" value="@Model?.RESPONSABLE">
+            <label for="floatingInput">Responsable</label>
+            <span class="text-danger">@Html.ValidationMessageFor(m => m.RESPONSABLE)</span>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="date" class="form-control" id="floatingInput" name="FECHA_ENTREGA" value="@Model?.FECHA_ENTREGA">
+            <label for="floatingInput">Fecha Limite</label>
+            <span class="text-danger">@Html.ValidationMessageFor(m => m.FECHA_ENTREGA)</span>
+        </div>
+        <br>
+        <div>
+            <button class="btn btn-success" type="submit">Crear Proyecto</button>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

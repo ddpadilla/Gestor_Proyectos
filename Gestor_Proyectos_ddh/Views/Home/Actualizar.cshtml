@@ -1,0 +1,72 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model Proyectos
+
+@{
+    ViewData["Title"] = "Actualizar Proyecto";
+}
+
+<h1 style="text-align:center">Actualizar Proyecto</h1>
+
+<br>
+
+
+<div>
+    <form asp-action="Actualizar" method="post">
+        <input type="hidden" asp-for="ID_PROYECTO" />
+
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="NOMBRE_PROYECTO" asp-for="NOMBRE_PROYECTO" />
+            <label for="NOMBRE_PROYECTO">Nombre del Proyecto</label>
+            <span asp-validation-for="NOMBRE_PROYECTO" class="text-danger"></span>
+        </div>
+
+        <div class="form-floating mb-3">
+            <textarea class="form-control" id="DESCRIPCION" asp-for="DESCRIPCION"></textarea>
+            <label for="DESCRIPCION">Descripción</label>
+            <span asp-validation-for="DESCRIPCION" class="text-danger"></span>
+        </div>
+
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="TAREAS" asp-for="TAREAS" />
+            <label for="TAREAS">Tareas</label>
+            <span asp-validation-for="TAREAS" class="text-danger"></span>
+        </div>
+
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="MATERIALES" asp-for="MATERIALES" />
+            <label for="MATERIALES">Materiales</label>
+            <span asp-validation-for="MATERIALES" class="text-danger"></span>
+        </div>
+
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="COSTOS" asp-for="COSTOS" />
+            <label for="COSTOS">Costos</label>
+            <span asp-validation-for="COSTOS" class="text-danger"></span>
+        </div>
+
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="RESPONSABLE" asp-for="RESPONSABLE" />
+            <label for="RESPONSABLE">Responsable</label>
+            <span asp-validation-for="RESPONSABLE" class="text-danger"></span>
+        </div>
+
+        <div class="form-floating mb-3">
+            <input type="date" class="form-control" id="FECHA_ENTREGA" asp-for="FECHA_ENTREGA" />
+            <label for="FECHA_ENTREGA">Fecha de Entrega</label>
+            <span asp-validation-for="FECHA_ENTREGA" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-success">Guardar Cambios</button>
+        <a asp-action="Gestionar" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
